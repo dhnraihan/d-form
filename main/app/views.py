@@ -3,7 +3,15 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the app index.")
+def form_elements(request):
+    return render(request, 'form-elements.html')
+
+
+def form_layout(request):
+    return render(request, 'form-layout.html')
+
+
+def hello(request):
+    return HttpResponse("Hello, world. You're at the app hello.")
 
 
