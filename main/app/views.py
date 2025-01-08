@@ -8,6 +8,8 @@ def form_elements(request):
 
 
 def form_layout(request):
+    a=100
+    
     return render(request, 'form-layout.html')
 
 
