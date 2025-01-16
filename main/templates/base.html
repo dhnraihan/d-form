@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/tailwind-out.css' %}">
+</head>
+<body class="dark bg-gray-900 text-white">
+<!-- Nav bar Start -->
+
+    <nav class="bg-white dark:bg-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+            <div class="flex items-center">
+              <a href="#" class="text-white text-xl font-bold"><img src="{% static 'img/buyme.png' %}" alt=""></a>
+            </div>
+        <!-- Search bar -->
+            <div class="flex ">
+                <input type="search" name="" class="rounded-full pl-2" id="" placeholder="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" class="" x="0px" y="0px" width="35" viewBox="0 0 48 48">
+                    <path fill="#616161" d="M34.6 28.1H38.6V45.1H34.6z" transform="rotate(-45.001 36.586 36.587)"></path><path fill="#616161" d="M20 4A16 16 0 1 0 20 36A16 16 0 1 0 20 4Z"></path><path fill="#37474F" d="M36.2 32.1H40.2V44.400000000000006H36.2z" transform="rotate(-45.001 38.24 38.24)"></path><path fill="#64B5F6" d="M20 7A13 13 0 1 0 20 33A13 13 0 1 0 20 7Z"></path><path fill="#BBDEFB" d="M26.9,14.2c-1.7-2-4.2-3.2-6.9-3.2s-5.2,1.2-6.9,3.2c-0.4,0.4-0.3,1.1,0.1,1.4c0.4,0.4,1.1,0.3,1.4-0.1C16,13.9,17.9,13,20,13s4,0.9,5.4,2.5c0.2,0.2,0.5,0.4,0.8,0.4c0.2,0,0.5-0.1,0.6-0.2C27.2,15.3,27.2,14.6,26.9,14.2z"></path>
+                    </svg>
+            </div>
+        <!-- Menu items -->
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-baseline space-x-4">
+                <a href="#" class="menu-items">Home</a>
+                <a href="#" class="menu-items">About</a>
+                <a href="#" class="menu-items">Services</a>
+                <a href="#" class="menu-items">Contact</a>
+              </div>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+              <button id="menu-btn" class="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-700">
+          <a href="#" class="mobile-menu">Home</a>
+          <a href="#" class="mobile-menu">About</a>
+          <a href="#" class="mobile-menu">Services</a>
+          <a href="#" class="mobile-menu">Contact</a>
+        </div>
+      </nav>
+<!-- Nav bar End -->
+
+{% block content %}
+{% endblock content %}
+
+<div class=" text-white pt-6 pb-6 px-10">
+    <p class="text-lg max-md:text-center items-center">
+    © <!-- -->2025<!-- -->  Inc. All rights reserved.
+  </p>
+  </div>
+  
+
+<script>
+    // JavaScript for Navbar Toggle
+  const toggleNavbar = document.getElementById('toggleNavbar');
+  const closeNavbar = document.getElementById('closeNavbar');
+  const navbar = document.getElementById('navbar');
+
+  toggleNavbar.addEventListener('click', () => {
+    navbar.classList.toggle('translate-x-full'); // Open Navbar
+  });
+
+  closeNavbar.addEventListener('click', () => {
+    navbar.classList.add('translate-x-full'); // Close Navbar
+  });
+
+  // Toggle mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+    
+</body>
+</html>
