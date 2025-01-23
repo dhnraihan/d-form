@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>item list</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+    <div class="container w-3/4 mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6 text-center">Item List</h1>
+        
+        <div class="flex justify-center mb-4">
+            <a href="{% url 'item_create' %}" 
+               class="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">
+                Save New Item
+            </a>
+        </div>
+        
+        <ul class="space-y-4">
+            {% for item in items %}
+                <li class="flex justify-between items-center p-4 border rounded shadow">
+                    <div>
+                        <span class="font-bold text-lg">{{ item.name }}</span> 
+                        <span class="text-gray-600">- ${{ item.price }}</span>
+                    </div>
+                    <div class="space-x-2">
+                        <a href="{% url 'item_update' item.id %}" 
+                           class="px-3 py-1 bg-yellow-400 text-white rounded hover:bg-yellow-500">
+                            Edit Item
+                        </a>
+                        <a href="{% url 'item_delete' item.id %}" 
+                           class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">
+                            Delete Item
+                        </a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+
+</body>
+</html>
